@@ -16,29 +16,24 @@ A;
 At = transpose(A);
 
 % Valori singolari %
-[U,S,V] = svd(A);
-[Ut,St,Vt] = svd(At);
+[U,S,V] = svd(A)
+[Ut,St,Vt] = svd(At)
 
-
-% Si nota che gli unici autovalori non tendenti a zero sono uguali fra AAt e AtA, inoltre %
-% i suddetti autovalori corrispondono ai quadrati dei valori singolari di A %
-eig(A*At);
-eig(At*A);
+% Autovalori %
+eig(A*At)
+eig(At*A)
 
 % Immagine %
-ImmA = orth(A);
-U;
-ImmAt = orth(At);
-Ut;
+ImmA = orth(A)
+U
+ImmAt = orth(At)
+Ut
 
 % Nucleo %
-% Il nucleo di A viene restituito vuoto (probabilmente perchè Ut coincide con l'immagine di At)
-% Si osserva che le colonne di Vt dalla quarta corrispondono a quelle del nucleo, mentre %
-% non sono presenti nel nucleo le prime 3 colonne di Vt %  
-KerA = null(A);
-V;
-KerAt = null(At);
-Vt;
+KerA = null(A)
+V
+KerAt = null(At)
+Vt
 
 
 

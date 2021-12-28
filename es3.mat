@@ -1,5 +1,5 @@
-d0 = 1;
-d1 = 1;
+d0 = 2;
+d1 = 8;
 m = 10*(d0+1)+d1;
 
 A = ones(m,3);
@@ -8,16 +8,16 @@ for i = 1:m
 	A(i,3) = (i/m)^2;
 end
 
-y = ones(m);
+y = ones(m,1);
 for i = 1:m
 	y(i) = sin(i/m);
 end
 
 % Inversa generalizzata 
-% x_spada = sommatoria di ((ui^t*y)/sigma_i) * vi
+% x_spada (sotto detta x1) = sommatoria di ((ui^t*y)/sigma_i) * vi
 
 [U,S,V] = svd(A,0);
-%x1 = V*((U'*y)./diag(S))
+x1 = V*((U'*y)./diag(S))
 
 [Q,R] = qr(A);
 [row,col] = size(R);
@@ -29,4 +29,4 @@ x2 = subR \ h1
 At = transpose(A);
 x3 = At*A \ At*y
 
-x4 = A\y 
+x4 = A\y

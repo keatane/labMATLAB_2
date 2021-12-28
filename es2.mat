@@ -16,15 +16,16 @@ function B = calcOnB(n)
 	
 	% Print B %
 	B;
+	%inv(B)
 	[ev,ew] = eig(B);
 	%norm(B)
 	%norm(B^-1)
-	S = svd(B);
+	S = svd(B)
 	C = cond(B);
 	
 	B(n,1) += -2^(2-n);
 	ewBperturbata = eig(B)
-	S = svd(B)
+	Sp = svd(B)
 	rank = rank(B)
 	N = null(B)
 	n
@@ -33,23 +34,6 @@ function B = calcOnB(n)
 	
 
 end
-
-% Studio dell'andamento rispetto a n %
-% Si osserva che l'andamento del condizionamento cresce notevolmente all'aumentare delle dimensioni della matrice %
-% effettivamente, aggiungendo dimensioni alle matrici, la norma aumenta, e poichè il condizionamento %
-% dipende direttamente dalla norma della matrice moltiplicata alla norma dell'inversa della matrice, % 
-% anch'esso aumenta % 
-
-
-% Osservazioni circa la perturbazione %
-%{ Al crescere di n, la perturbazione diventa sempre più piccola
-%Il rango di B non è massimo, in quanto un autovalore tende a zero: questo perchè la matrice perturbata
-%ha un valore sulla diagonale a zero (precisamente quello che otteniamo sottraendo a 1 la perturbazione 2^(2-2))
-% un valore singolare tende a zero perchè poichè la matrice è diagonalizzabile, i valori equivalgono (a meno di ordine e segno) agli autovalori (quindi sappiamo necessariamente che il nucleo (matrice quadrata) non è vuoto perchè un valore singolare finisce in zero.
-% Congettura: essendo il nucleo non vuoto, l'immagine non ha dimensione n (ha n-1 vettori) e quindi le colonne sono dipendenti (lo spazio dell'immagine è generato con 2 vettori, dunque avendo 3 vettori che genererebbero lo stesso spazio posso dire che questi sono dipendenti)
-%quindi il rango non è massimo perchè non indipendenti  
-%}
-
 
 calcOnB(2);
 calcOnB(3);
